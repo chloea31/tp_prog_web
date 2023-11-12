@@ -45,6 +45,7 @@ def print_message():
         c = conn.cursor()
         c.execute(f"INSERT INTO FormData VALUES ('{data['prenom']}', '{data['nom']}', '{data['genre']}')")
         conn.commit()
+    finally:
         conn.close()
     return (f"""
     <table border="black">
@@ -63,3 +64,30 @@ def print_message():
     </table>
     <a href="{url_for('personnesBDD')}">Personnes inscrites</a>
     """)
+
+##################
+### Q6
+##################
+
+@app.route("/inscrits")
+def personnesBDD():
+    liste_pers = []
+    conn = sqlite3.connect("db.sqlite3")
+    try:
+        c = conn.cursor()
+        c.execute("""SELECT * FROM FormData""")
+
+        rows = c.fetchall()
+
+        for row in rows:
+            liste_pers.append(row)
+
+    finally:
+        conn.close()
+    return (f"""<p>{liste_pers}</p><br/><a href="{url_for('content_file', filename='form.html')}">Personnes ajoutees</a>""")
+
+##################
+### Q7
+##################
+
+
