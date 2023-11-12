@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bienvenue sur le formulaire</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="glider.png">
+    </head>
+    <body>
+        <img alt="the hacker symbol" src="glider.png">
+        <h1>Bienvenue sur le formulaire</h1>
+        <form action="../formproc" method="post">
+            <p><label>Prénom: <input name="prenom"></label></p>
+            <p><label>Nom: <input name="nom"></label></p>
+            <p>Genre:<label><input name="genre" type="radio" value="female">&female;</label>
+            <label><input name="genre" type="radio" value="male">&male;</label>
+            <label><input name="genre" type="radio" value="other">x</label></p>
+            <p><button>Envoyer</button></p>
+        </form>
+    </body>
+</html>
